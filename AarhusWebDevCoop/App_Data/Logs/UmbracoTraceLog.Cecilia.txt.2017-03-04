@@ -1,0 +1,13 @@
+﻿ 2017-03-04 04:29:42,484 [P18924/D2/T15] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-03-03 04:29:42
+ 2017-03-04 08:29:42,512 [P18924/D2/T89] INFO  umbraco.BusinessLogic.Log - Log scrubbed.  Removed all items older than 2017-03-03 08:29:42
+ 2017-03-04 11:10:46,743 [P18924/D2/T103] ERROR Umbraco.Web.Scheduling.KeepAlive - Failed (at "http://localhost:56947/umbraco").
+System.Net.Http.HttpRequestException: Der opstod en fejl under afsendelse af anmodningen. ---> System.Net.WebException: Der kunne ikke oprettes forbindelse til fjernserveren ---> System.Net.Sockets.SocketException: Det blev forsøgt at få adgang til en socket på en måde, der er forbudt af den pågældende sockets adgangstilladelser 127.0.0.1:56947
+   ved System.Net.Sockets.Socket.EndConnect(IAsyncResult asyncResult)
+   ved System.Net.ServicePoint.ConnectSocketInternal(Boolean connectFailure, Socket s4, Socket s6, Socket& socket, IPAddress& address, ConnectSocketState state, IAsyncResult asyncResult, Exception& exception)
+   --- Slut på staksporing af indre undtagelser ---
+   ved System.Net.HttpWebRequest.EndGetResponse(IAsyncResult asyncResult)
+   ved System.Net.Http.HttpClientHandler.GetResponseCallback(IAsyncResult ar)
+   --- Slut på staksporing af indre undtagelser ---
+   ved System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
+   ved System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
+   ved Umbraco.Web.Scheduling.KeepAlive.<PerformRunAsync>d__4.MoveNext()

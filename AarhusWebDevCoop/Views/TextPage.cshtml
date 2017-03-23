@@ -1,0 +1,55 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.TextPage>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@using AarhusWebDevCoop.App_Code.PetaPoco.Models;
+@using AarhusWebDevCoop.App_Code.PetaPoco.Repository;
+
+@{
+	Layout = "Master.cshtml";
+}	
+	
+	
+@**	
+	    var PagedAuthors = Authors.GetAllPaged(2, 5);
+}
+
+<ul>
+    @foreach (var item in PagedAuthors.Items)
+    {
+    <li>@item.Name @item.Surname</li>
+    }
+</ul>
+Total Pages : @PagedAuthors.TotalPages<br />
+Current Page : @PagedAuthors.CurrentPage<br />
+Total records : @PagedAuthors.TotalItems<br />
+Records per page : @PagedAuthors.ItemsPerPage<br />
+
+
+
+@{  var JulesVerne = new Author()    {    
+		Name = "Jules",     
+		Surname = "Verne",        
+		DateOfBirth = new DateTime(1828, 2, 8)   
+	};    
+	Authors.Save(JulesVerne);
+  
+  	var JulesVerneBook1 = new Book()    {        Title = "Journey to the Center of the Earth",        Description = "The story involves German professor Otto Lidenbrock who believes there are volcanic tubes going toward the centre of the Earth. He, his nephew Axel, and their guide Hans descend into the Icelandic volcano Snæfellsjökull, encountering many adventures, including prehistoric animals and natural hazards, before eventually coming to the surface again in southern Italy, at the Stromboli volcano.",        Year = 1864,        AuthorID = JulesVerne.AuthorID    };    Books.Save(JulesVerneBook1);     var JulesVerneBook2 = new Book()    {        Title = "Twenty Thousand Leagues Under the Sea",        Description = "It tells the story of Captain Nemo and his submarine Nautilus, as seen from the perspective of Professor Pierre Aronnax after he, his servant Conseil, and Canadian whaler Ned Land wash up on their ship. On the Nautilus, the three embark on an undersea journey which takes them around the world.",        Year = 1870,        AuthorID = JulesVerne.AuthorID    };    Books.Save(JulesVerneBook2);     var JulesVerneBook3 = new Book()    {        Title = "Around the World in Eighty Days",        Description = "In the story, Phileas Fogg of London and his newly employed French valet Passepartout attempt to circumnavigate the world in 80 days on a £20,000 wager (roughly £1.6 million today) set by his friends at the Reform Club. It is one of Verne's most acclaimed works.",        Year = 1873,        AuthorID = JulesVerne.AuthorID    };    Books.Save(JulesVerneBook3);     var DouglasAdams = new Author()    {        Name = "Douglas",        Surname = "Adams",        DateOfBirth = new DateTime(1952, 3, 11)    };    Authors.Save(DouglasAdams);     var DouglasAdamsBook1 = new Book()    {        Title = "The Hitchhiker's Guide to the Galaxy",        Year = 1978,        AuthorID = DouglasAdams.AuthorID    };    Books.Save(DouglasAdamsBook1);     var DouglasAdamsBook2 = new Book()    {        Title = "Dirk Gently's Holistic Detective Agency",        Year = 1987,        AuthorID = DouglasAdams.AuthorID    };    Books.Save(DouglasAdamsBook2);}
+
+
+<ul>
+    @foreach (var Author in Authors.GetAll())
+    {
+    <li>
+        @Author.Name @Author.Surname
+        <ul>
+            @foreach (var Book in Books.GetAllByAuthorID(Author.AuthorID))
+            {
+            <li>@Book.Title</li>
+            }
+        </ul>
+    </li>
+    }
+</ul>
+**@
+
+<h1>@Umbraco.Field("header")</h1>
+<p>@Umbraco.Field("mainContent")</p>

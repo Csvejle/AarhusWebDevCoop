@@ -1,0 +1,16 @@
+@import "../sass/_ bootstrap-variables";
+@import "customVar";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap.scss";
+@import "../bower_components/bootstrap-sass/assets/stylesheets/_bootstrap-compass.scss";
+@import "custom";
+
+.footer {
+  width: 100%;
+  height: auto;
+  float: left;
+  line-height: 60px; 
+  text-align: center;
+  background-color: beige;
+  border-top: 1px soild grey;
+  border-bottom: 1px soild grey;
+}

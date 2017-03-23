@@ -1,0 +1,19 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{
+	var projects = CurrentPage.Site()
+									 .Children
+									 .Where("DocumentTypeAlias == \"projectsOverview\"")
+									 .First()
+									 .Children
+									 .Where("projectStatus.Contains(\"13\")")
+									 .OrderBy("CreateDate desc")
+									 .Take(5);				   
+}
+<h4>Nyeste projekter</h4>
+<ul>
+@foreach (IPublishedContent loopPage in @projects) 
+{
+	<li><a href="@loopPage.Url">@loopPage.Name</a></li>
+}
+</ul>

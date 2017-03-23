@@ -1,0 +1,16 @@
+﻿@inherits Umbraco.Web.Macros.PartialViewMacroPage
+
+@{ 
+    var selection = CurrentPage.Children.Where("Visible").OrderBy("CreateDate desc"); 
+    @* OrderBy() takes the property to sort by and optionally order desc/asc *@
+}
+
+@foreach (var item in selection)
+{
+	<div class="article clearfix">
+			<h4>@item.ArticleTitle</h4>
+			<p>@Umbraco.Truncate(@item.ArticleContent,100) <br/>
+			<a class="backLink" href="@item.Url">Læs mere</a></p>
+	</div>
+    <hr/>
+}

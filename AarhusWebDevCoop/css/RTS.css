@@ -1,0 +1,22 @@
+
+
+/**umb_name:Citat*/
+.Citat{color: grey;
+font-style: italic;
+text-align: center;
+display: block;}
+
+
+
+/**umb_name:Label*/
+.Label{font-weight: bold;
+color: chocolate;
+font-variant: small-caps;}
+
+/**umb_name:GreyBG*/
+.GreyBG{background-color: #333;
+color: #aaa;}
+
+/**umb_name:SkyBlueBG*/
+.SkyBlueBG{background-color: CornflowerBlue;
+color: #eee;}

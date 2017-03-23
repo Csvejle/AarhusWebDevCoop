@@ -1,0 +1,29 @@
+﻿@inherits Umbraco.Web.Mvc.UmbracoTemplatePage<ContentModels.ProjectItem>
+@using ContentModels = Umbraco.Web.PublishedContentModels;
+@{
+	Layout = "Master.cshtml";
+	var SelectionId = Model.Content.GetPropertyValue<Int32>("projectStatus");
+	bool showContent = false;
+}
+	@if(System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Active")){
+		showContent = true;
+	}
+	else if(System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Guest")){
+		if(SelectionId == 11 || SelectionId == 13){
+			showContent = true;
+		}
+	}
+
+@if(showContent) {
+	<h1>@Umbraco.Field("projectTitle")</h1>
+	<p>@Umbraco.Field("projectDescription")</p>
+		<p><i>Status:</i>
+			@umbraco.library.GetPreValueAsString(SelectionId)
+		</p>
+	<br/>
+	<hr/>
+	<a class="backLink" href="/projects">Tilbage til projektoversigt</a>
+}
+else {	
+	Response.Redirect(umbraco.library.NiceUrl(1129));
+}
