@@ -481,7 +481,9 @@
     <Content Include="Media\1008\stevenagainstlinkrot2.png" />
     <Content Include="Media\1008\stevenagainstlinkrot2_thumb.jpg" />
     <Content Include="Media\1008\stevenagainstlinkrot2_thumb.png" />
-    <Content Include="Media\1010\logo.png" />
+    <Content Include="Media\1011\adamlambert.jpg" />
+    <Content Include="Media\1012\cecilia.jpg" />
+    <Content Include="Media\1013\logo_awdn.png" />
     <Content Include="node_modules\abbrev\abbrev.js" />
     <Content Include="node_modules\ansi-regex\index.js" />
     <Content Include="node_modules\ansi-styles\index.js" />
