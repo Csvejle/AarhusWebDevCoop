@@ -72,13 +72,23 @@
 									}
 									else
 									{
-										 @** Others **@
-										
-										liste = null;
+										liste = Model.Content.AncestorOrSelf(1)
+										.Children
+										.Where(x => x.Id == @item.Id)
+										.First()
+										.Children
+										.Where("Visible && projectStatus.Contains(\"13\")")  
+										.OrderBy("Name");	
 									}
 								}
 								else {
-									liste = null;
+									liste = Model.Content.AncestorOrSelf(1)
+										.Children
+										.Where(x => x.Id == @item.Id)
+										.First()
+										.Children
+										.Where("Visible && projectStatus.Contains(\"13\")")  
+										.OrderBy("Name");							
 								}
 						}
 						else {

@@ -63,7 +63,7 @@ namespace AarhusWebDevCoop.Controllers
                 Services.ContentService.Save(comment);
 
                 //Gemmer og publicer indhold
-                //Services.ContentService.SaveAndPublishWithStatus(comment);
+                //Services.ContentService.(comment);
 
                 TempData["success"] = ok;
                 res =  RedirectToCurrentUmbracoPage();

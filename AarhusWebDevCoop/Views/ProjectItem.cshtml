@@ -5,14 +5,26 @@
 	var SelectionId = Model.Content.GetPropertyValue<Int32>("projectStatus");
 	bool showContent = false;
 }
-	@if(System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Active")){
-		showContent = true;
-	}
-	else if(System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Guest")){
-		if(SelectionId == 11 || SelectionId == 13){
-			showContent = true;
-		}
-	}
+
+@if (@Members.GetCurrentLoginStatus().Name != null)
+{
+    if (System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Active"))
+    {
+        showContent = true;
+    }
+    else if (System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Guest"))
+    {
+        if (SelectionId == 11 || SelectionId == 13)
+        {
+            showContent = true;
+        }
+    }
+}
+else if (SelectionId == 13)
+ {
+        showContent = true;
+}
+
 
 @if(showContent) {
 	<h1>@Umbraco.Field("projectTitle")</h1>

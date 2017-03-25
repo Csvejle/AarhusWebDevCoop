@@ -5,9 +5,12 @@
 	bool showContent = false;
 }
 
-
-@if(System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Active")){
-	showContent = true;
+@if (@Members.GetCurrentLoginStatus().Name != null)
+{
+    if (System.Web.Security.Roles.IsUserInRole(@Members.GetCurrentLoginStatus().Name, "Active"))
+    {
+        showContent = true;
+    }
 }
 
 @if(showContent) {
